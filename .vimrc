@@ -48,6 +48,20 @@ Plug 'bronson/vim-trailing-whitespace'
 " CSVをカラム単位に色分けする
 Plug 'mechatroner/rainbow_csv'
 
+" HTML自動補完
+Plug 'alvan/vim-closetag'
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
+let g:closetag_filetypes = 'html,xhtml,phtml'
+let g:closetag_xhtml_filetypes = 'xhtml,jsx'
+let g:closetag_emptyTags_caseSensitive = 1
+let g:closetag_regions = {
+    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+    \ 'javascript.jsx': 'jsxRegion',
+    \ }
+let g:closetag_shortcut = '>'
+let g:closetag_close_shortcut = '<leader>>'
+
 " 余談: neocompleteは合わなかった。ctrl+pで補完するのが便利
 
 call plug#end()
