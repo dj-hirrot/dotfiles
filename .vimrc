@@ -42,8 +42,8 @@ Plug 'bronson/vim-trailing-whitespace'
 " Plug 'KohPoll/vim-less'
 
 " RubyMineのように自動保存する
-Plug '907th/vim-auto-save'
-let g:auto_save = 1
+" Plug '907th/vim-auto-save'
+" let g:auto_save = 1
 
 " CSVをカラム単位に色分けする
 Plug 'mechatroner/rainbow_csv'
