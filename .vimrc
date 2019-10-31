@@ -9,11 +9,11 @@ call plug#begin('~/.vim/plugged')
 
 " ファイルをtree表示してくれる
 Plug 'scrooloose/nerdtree'
-" インデントの可視化
-Plug 'Yggdroot/indentLine'
-let g:indentLine_color_term = 239
 " 行末の半角スペースを可視化
 Plug 'bronson/vim-trailing-whitespace'
+" Gitを便利に使う
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
@@ -34,8 +34,8 @@ set ruler
 set cmdheight=2
 " エディタウィンドウの末尾から2行目にステータスラインを常時表示させる
 set laststatus=2
-" ステータス行に表示させる情報の指定(どこからかコピペしたので細かい意味はわかっていない)
-set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
+" ステータス行に表示させる情報の指定
+set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%8P
 " 入力中のコマンドを表示する
 set showcmd
 " 小文字のみで検索したときに大文字小文字を無視する
