@@ -28,8 +28,6 @@ set cmdheight=2
 set laststatus=2
 " ステータス行に表示させる情報の指定(どこからかコピペしたので細かい意味はわかっていない)
 set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
-" ステータス行に現在のgitブランチを表示する
-set statusline+=%{fugitive#statusline()}
 " 入力中のコマンドを表示する
 set showcmd
 " 小文字のみで検索したときに大文字小文字を無視する
