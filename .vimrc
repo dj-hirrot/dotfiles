@@ -53,7 +53,7 @@ set hidden
 " 不可視文字を表示する
 set list
 " タブと行の続きを可視化する
-set listchars=tab:>\ ,extends:<
+set listchars=tab:»-,space:･,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 " 行番号を表示する
 set number
 " 対応する括弧やブレースを表示する
