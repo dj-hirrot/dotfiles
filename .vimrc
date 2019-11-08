@@ -78,6 +78,12 @@ set showcmd
 " アップデート
 set updatetime=300
 
+" コマンドモードの補完
+set wildmenu
+
+" 保存するコマンド履歴の数
+set history=5000
+
 " ビジュアル系
 syntax enable
 colorscheme onedark
