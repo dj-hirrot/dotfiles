@@ -38,6 +38,9 @@ Plug 'mattn/emmet-vim'
 " Auto insert close-tag
 Plug 'alvan/vim-closetag'
 
+" Autocompletion
+Plug 'Valloric/YouCompleteMe'
+
 call plug#end()
 
 """"""""""""""""""""""""""""""
@@ -74,6 +77,9 @@ set wildmenu
 
 " 保存するコマンド履歴の数
 set history=5000
+
+" YCMの設定
+set splitbelow
 
 " ビジュアル系
 syntax enable
@@ -158,3 +164,8 @@ let g:user_emmet_settings = {
 \    }
 \  }
 \}
+" YCM
+let g:ycm_global_ycm_extra_conf = '${HOME}/.ycm_extra_conf.py'
+let g:ycm_auto_trigger = 1
+let g:ycm_min_num_of_chars_for_completion = 3
+let g:ycm_autoclose_preview_window_after_insertion = 1
