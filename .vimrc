@@ -38,6 +38,9 @@ Plug 'mattn/emmet-vim'
 " Autocomplete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" Auto insert close-tag
+Plug 'alvan/vim-closetag'
+
 call plug#end()
 
 """"""""""""""""""""""""""""""
@@ -46,10 +49,11 @@ call plug#end()
 " NERDTree
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+\  pumvisible() ? "\<C-n>" :
+\  <SID>check_back_space() ? "\<TAB>" :
+\  coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <silent><expr> <c-space> coc#refresh()
 
 """"""""""""""""""""""""""""""
 " 各種オプションの設定
@@ -70,6 +74,9 @@ set hidden
 
 " 入力中のコマンドを表示
 set showcmd
+
+" アップデート
+set updatetime=300
 
 " ビジュアル系
 syntax enable
