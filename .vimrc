@@ -35,9 +35,6 @@ Plug 'cohama/lexima.vim'
 " HTML
 Plug 'mattn/emmet-vim'
 
-" Autocomplete
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
 " Auto insert close-tag
 Plug 'alvan/vim-closetag'
 
@@ -48,12 +45,6 @@ call plug#end()
 """"""""""""""""""""""""""""""
 " NERDTree
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
-inoremap <silent><expr> <TAB>
-\  pumvisible() ? "\<C-n>" :
-\  <SID>check_back_space() ? "\<TAB>" :
-\  coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-inoremap <silent><expr> <c-space> coc#refresh()
 
 """"""""""""""""""""""""""""""
 " 各種オプションの設定
