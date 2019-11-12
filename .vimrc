@@ -84,6 +84,9 @@ set history=5000
 " YCMの設定
 set splitbelow
 
+" バックスペースが無効になってしまう現象回避
+set backspace=indent,eol,start
+
 " ビジュアル系
 syntax enable
 colorscheme onedark
