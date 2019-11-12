@@ -44,6 +44,9 @@ Plug 'Valloric/YouCompleteMe'
 " Fuzzy search
 Plug 'ctrlpvim/ctrlp.vim'
 
+" Window split
+Plug 'Shougo/unite.vim'
+
 call plug#end()
 
 """"""""""""""""""""""""""""""
@@ -107,10 +110,13 @@ set listchars=tab:»-,space:･,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 nnoremap j gj
 nnoremap k gk
 
-" タブを開くときのキーマップ
-nnoremap sT :tabnew
+" タブウィンドウを開くときのキーマップ
+nnoremap st :<C-u>tabnew<CR>
+nnoremap sT :<C-u>Unite tab<CR>
 nnoremap sn gt
 nnoremap sp gT
+nnoremap sb :<C-u>Unite buffer_tab -buffer-name=file<CR>
+nnoremap sB :<C-u>Unite buffer -buffer-name=file<CR>
 
 " タブ系
 set expandtab
