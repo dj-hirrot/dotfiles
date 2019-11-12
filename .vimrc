@@ -120,6 +120,23 @@ nnoremap sn gt
 nnoremap sp gT
 nnoremap sb :<C-u>Unite buffer_tab -buffer-name=file<CR>
 nnoremap sB :<C-u>Unite buffer -buffer-name=file<CR>
+" 水平分割
+nnoremap ss :split<CR>
+" 垂直分割
+nnoremap sv :vsplit<CR>
+
+" タブ移動
+nnoremap sh <C-w>h
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sw <C-w>w
+
+" タブサイズ調整
+nnoremap s> <C-w>>
+nnoremap s< <C-w><
+
+nnoremap s+ <C-w>+
+nnoremap s- <C-w>-
 
 " タブ系
 set expandtab
