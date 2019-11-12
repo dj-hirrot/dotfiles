@@ -41,6 +41,9 @@ Plug 'alvan/vim-closetag'
 " Autocompletion
 Plug 'Valloric/YouCompleteMe'
 
+" Fuzzy search
+Plug 'ctrlpvim/ctrlp.vim'
+
 call plug#end()
 
 """"""""""""""""""""""""""""""
