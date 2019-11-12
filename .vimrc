@@ -107,6 +107,11 @@ set listchars=tab:»-,space:･,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 nnoremap j gj
 nnoremap k gk
 
+" タブを開くときのキーマップ
+nnoremap sT :tabnew
+nnoremap sn gt
+nnoremap sp gT
+
 " タブ系
 set expandtab
 set tabstop=2
