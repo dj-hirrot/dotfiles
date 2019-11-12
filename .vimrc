@@ -47,6 +47,9 @@ Plug 'ctrlpvim/ctrlp.vim'
 " Window split
 Plug 'Shougo/unite.vim'
 
+" (TEST) Vue.js for vim
+Plug 'posva/vim-vue'
+
 call plug#end()
 
 """"""""""""""""""""""""""""""
