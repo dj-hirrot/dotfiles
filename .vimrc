@@ -93,6 +93,9 @@ set splitbelow
 " バックスペースが無効になってしまう現象回避
 set backspace=indent,eol,start
 
+" クリップボードを使用
+set clipboard+=unnamed
+
 " ビジュアル系
 syntax enable
 colorscheme onedark
