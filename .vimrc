@@ -19,7 +19,6 @@ Plug 'osyo-manga/vim-anzu'
 
 " Indent
 Plug 'nathanaelkane/vim-indent-guides'
-let g:indent_guides_enable_on_vim_startup=1
 
 " NERDTree
 Plug 'scrooloose/nerdtree'
@@ -29,6 +28,27 @@ Plug 'bronson/vim-trailing-whitespace'
 
 " GitDiff
 Plug 'airblade/vim-gitgutter'
+
+" Quote auto close
+Plug 'cohama/lexima.vim'
+
+" HTML
+Plug 'mattn/emmet-vim'
+
+" Auto insert close-tag
+Plug 'alvan/vim-closetag'
+
+" Autocompletion
+Plug 'Valloric/YouCompleteMe'
+
+" Fuzzy search
+Plug 'ctrlpvim/ctrlp.vim'
+
+" Window split
+Plug 'Shougo/unite.vim'
+
+" (TEST) Vue.js for vim
+Plug 'posva/vim-vue'
 
 call plug#end()
 
@@ -58,6 +78,24 @@ set hidden
 " 入力中のコマンドを表示
 set showcmd
 
+" アップデート
+set updatetime=300
+
+" コマンドモードの補完
+set wildmenu
+
+" 保存するコマンド履歴の数
+set history=5000
+
+" YCMの設定
+set splitbelow
+
+" バックスペースが無効になってしまう現象回避
+set backspace=indent,eol,start
+
+" クリップボードを使用
+set clipboard+=unnamed
+
 " ビジュアル系
 syntax enable
 colorscheme onedark
@@ -72,16 +110,38 @@ set laststatus=2
 set wildmode=list:longest
 set t_Co=256
 set list
-set listchars=tab:»-,trail:-,nbsp:%,eol:↲
-highlight NonText ctermbg=None ctermfg=200 guibg=None guifg=None
-highlight SpecialKey ctermbg=None ctermfg=200 guibg=None guifg=None
+set listchars=tab:»-,space:･,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 
 " 折り返し時に表示行単位での移動をできるようにする
 nnoremap j gj
 nnoremap k gk
 
+" タブウィンドウを開くときのキーマップ
+nnoremap st :<C-u>tabnew<CR>
+nnoremap sT :<C-u>Unite tab<CR>
+nnoremap sn gt
+nnoremap sp gT
+nnoremap sb :<C-u>Unite buffer_tab -buffer-name=file<CR>
+nnoremap sB :<C-u>Unite buffer -buffer-name=file<CR>
+" 水平分割
+nnoremap ss :split<CR>
+" 垂直分割
+nnoremap sv :vsplit<CR>
+
+" タブ移動
+nnoremap sh <C-w>h
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sw <C-w>w
+
+" タブサイズ調整
+nnoremap s> <C-w>>
+nnoremap s< <C-w><
+
+nnoremap s+ <C-w>+
+nnoremap s- <C-w>-
+
 " タブ系
-set list listchars=tab:\▸\-
 set expandtab
 set tabstop=2
 set shiftwidth=2
@@ -94,3 +154,58 @@ set incsearch
 set wrapscan
 set hlsearch
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
+
+" 宣言
+function! AbsolutePath()
+  let a = substitute(expand('%:p'), $HOME, '~', '')
+  if a == ""
+    return '🗒'
+  elseif strlen(a) > 40
+    return a[strlen(a)-40:]
+  else
+    return a
+  endif
+endfunction
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:indent_guides_enable_on_vim_startup=1
+let g:lightline = {
+\   'active': {
+\     'left': [
+\       ['mode', 'paste'],
+\       ['fugitive', 'readonly', 'relativepath', 'modified']
+\     ]
+\   },
+\   'component_function': {
+\     'absolutepath': 'AbsolutePath'
+\   }
+\ }
+let g:user_emmet_settings = {
+\  'variables' : {
+\    'lang' : "ja"
+\  },
+\  'html' : {
+\    'indentation' : '  ',
+\    'snippets' : {
+\      'html:5': "<!DOCTYPE html>\n"
+\        ."<html lang=\"${lang}\">\n"
+\        ."<head>\n"
+\        ."\t<meta charset=\"${charset}\">\n"
+\        ."\t<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n"
+\        ."\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n"
+\        ."\t<title></title>\n"
+\        ."</head>\n"
+\        ."<body>\n\t${child}|\n</body>\n"
+\        ."</html>",
+\    }
+\  }
+\}
+" YCM
+let g:ycm_global_ycm_extra_conf = '${HOME}/.ycm_extra_conf.py'
+let g:ycm_auto_trigger = 1
+let g:ycm_min_num_of_chars_for_completion = 3
+let g:ycm_autoclose_preview_window_after_insertion = 1

@@ -1,4 +1,4 @@
-# Vim config files
+# DJ HIRROT's dotfiles
 This repo is puts vim-config files.
 I will modify it accordingly.
 
@@ -34,4 +34,3 @@ Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-fugitive'
 ```
 ステータスラインをよしなに表示するPlug.
-
